@@ -76,13 +76,18 @@ The following variables can be used to change the utility's behaviors, however t
 
 The personal access token with access to the GitLab namespace.  *REQUIRED.*
 
-Required scopes:
+Required fine-grained personal access token resource permissions:
 
-* `read_api`: For:
-    + Querying available projects in the namespace.
-* `api`: For:
-    + Removing existing repository push mirroring configurations.
-    + Adding new repository push mirroring configurations.
+* User:
+    + Groups:
+        - Namespace
+            * Read: For querying available projects in the namespace.
+* Group and project:
+    + Project Features:
+        - Remote Mirror:
+            * Create: For creating a new repository push mirroring configuration.
+            * Delete: For removing the existing repository push mirroring configuration.
+            * Read: For checking the existing repository push mirroring configuration.
 
 **Default value:** (unset)
 
